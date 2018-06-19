@@ -34,8 +34,6 @@ RUN pecl install -o -f redis \
 # Crontab
 ###########################################################################
 
-USER root
-
 RUN mkdir /etc/cron.d && \
     chmod -R 644 /etc/cron.d
 
