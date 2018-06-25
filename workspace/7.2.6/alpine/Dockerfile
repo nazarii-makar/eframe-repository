@@ -15,7 +15,7 @@ RUN apk add --no-cache --virtual .build-deps \
         libgsasl-dev
 
 
-RUN docker-php-ext-install mysqli mbstring pdo pdo_mysql tokenizer xml pcntl
+RUN docker-php-ext-install mysqli mbstring pdo pdo_mysql tokenizer xml pcntl bcmath
 
 
 RUN pecl channel-update pecl.php.net
