@@ -18,7 +18,7 @@ RUN apk add --no-cache --virtual .build-deps \
 
 
 # Install the PHP pdo_mysql extention
-RUN docker-php-ext-install pdo_mysql \
+RUN docker-php-ext-install pdo_mysql bcmath \
     # Install the PHP gd library
     && docker-php-ext-configure gd \
       --with-jpeg-dir=/usr/lib \
