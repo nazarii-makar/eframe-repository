@@ -7,6 +7,7 @@ FROM php:7.2.6-fpm-alpine
 #--------------------------------------------------------------------------
 #
 RUN apk add --no-cache --virtual .build-deps \
+        icu-dev \
         zlib-dev \
         autoconf \
         build-base \
@@ -18,7 +19,7 @@ RUN apk add --no-cache --virtual .build-deps \
 
 
 # Install the PHP pdo_mysql extention
-RUN docker-php-ext-install pdo_mysql bcmath \
+RUN docker-php-ext-install pdo_mysql bcmath intl \
     # Install the PHP gd library
     && docker-php-ext-configure gd \
       --with-jpeg-dir=/usr/lib \

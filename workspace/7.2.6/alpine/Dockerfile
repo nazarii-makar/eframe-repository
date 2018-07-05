@@ -6,6 +6,7 @@ FROM php:7.2.6-alpine
 #--------------------------------------------------------------------------
 #
 RUN apk add --no-cache --virtual .build-deps \
+        icu-dev \
         build-base \
         libmcrypt-dev \
         libxml2-dev \
@@ -15,7 +16,15 @@ RUN apk add --no-cache --virtual .build-deps \
         libgsasl-dev
 
 
-RUN docker-php-ext-install mysqli mbstring pdo pdo_mysql tokenizer xml pcntl bcmath
+RUN docker-php-ext-install mysqli \
+    mbstring \
+    pdo \
+    pdo_mysql \
+    tokenizer \
+    xml \
+    pcntl \
+    bcmath \
+    intl
 
 
 RUN pecl channel-update pecl.php.net
